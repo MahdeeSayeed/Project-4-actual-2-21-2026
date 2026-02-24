@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+NO:wght@100..400&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Story+Script&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import "tailwindcss";
+
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 575px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1170px;
+  --color-primary: #db4444;
+  --font-Inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+@utility container {
+  margin-inline: auto;
+}
+
+.slick-dots.slick-active li div {
+  background: red;
+  border: 2px solid white;
+}
+
+.slick-slide.slick-active.slick-current {
+	display: flex;
+	justify-content: center;
+}
