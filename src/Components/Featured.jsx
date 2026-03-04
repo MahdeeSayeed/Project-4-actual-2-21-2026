@@ -12,7 +12,7 @@ export const Featured = ({title, heading}) => {
   <>
 
   <div className='mt-28'>
-  <h1 className=" absolute top-934 -mt-9   text-primary flex gap-2.5">
+  <h1 className=" absolute top-789 -mt-9   text-primary flex gap-2.5">
         <div className=" w-5 h-8 bg-primary rounded-2xl mb-7 font-poppins mt-1"></div>
         {title}
       </h1>

@@ -12,8 +12,9 @@ const CartPages = () => {
 
   const data= useSelector((state)=>state.AllProducts.Cart)
 
+  let Subtotal= useSelector((state)=>state.AllProducts.Subtotal)
 
-   console.log(data)
+
 
 
 
@@ -34,14 +35,14 @@ const CartPages = () => {
             <h4>Product</h4>
             <h4>Price</h4>
             <h4>Quantity</h4>
-            <h4>SubtotaL</h4>
+            <h4>${Subtotal}</h4>
         </Flex>
 
        </div>
      {
          data.map((item,index)=>{
            
-          return <CartItems  id={item.id} key={index}imgSrc={item.thumbail} title={item.title} price={item.price} subtotal={item.price}/>
+          return <CartItems  id={item.id} key={index}imgSrc={item.thumbail} title={item.title} price={item.price} subtotal={item.price} quan={item.quan}/>
 
 
 

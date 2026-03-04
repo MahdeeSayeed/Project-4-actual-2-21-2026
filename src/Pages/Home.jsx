@@ -20,10 +20,17 @@ import Navbar from '../Components/Navbar.jsx'
 const Home = () => {
   return (
     <>
-
-   
-   
+   <Flex/>
    <Banner/>
+   <Flash/>
+   <Categories/>
+   <Months/>
+   <Categories2/>
+   <Counter/>
+   <Products/>
+ 
+   <Featured/>
+   <Footer/>
    <Outlet/>
     
     </>

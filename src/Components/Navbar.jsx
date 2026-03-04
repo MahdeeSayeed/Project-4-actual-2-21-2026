@@ -63,12 +63,12 @@ const Navbar = () => {
   <div className='flex justify-between'>
     <div className='flex justify-between gap-1'>
 
-   <HiMagnifyingGlass className='absolute lg:right-3 -right-3 flex justify-center items-center gap-1 right-3 text-black' /> 
+   <HiMagnifyingGlass className='absolute lg:right-10 bottom-1  flex justify-center items-center gap-1 right-59 text-black' /> 
 
 
 
-<CiHeart className='mt-5 lg-mt-0text-2xl'/>
-  <div className='relative'>
+<CiHeart className='mt-5 lg-mt-0text-2xl relative left-9  -top-2 bottom-9'/>
+  <div className='relative left-9 top-2'>
   <NavLink to='CartItems'>
 
     <CiShoppingCart className='text-2xl' />

@@ -4,7 +4,7 @@ import { FaRegEye } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Bounce, toast } from 'react-toastify';
 import { useNavigate } from "react-router";
-import { CartReducer } from "../Slice/ProductSlice";
+import { CartReducer, SubtotalReducer } from "../Slice/ProductSlice";
 import Flex from "./Flex";
 const Card = ({
   imgSRC,
@@ -16,23 +16,25 @@ const Card = ({
   rating,
   id,
   ProductData,
+  
 }) => {
   let navigate = useNavigate();
-  let cardData = useSelector((state) => state.AllProducts.Cart);
-  console.log(cardData);
+  const cardData = useSelector((state) => state.AllProducts.Cart);
 
-  const dispatch = useDispatch(CartReducer(ProductData));
+
+  const dispatch = useDispatch();
 
   const handleProductDetails = () => {
     navigate(`/ProductDetails/${id}`);
+    dispatch(SubtotalReducer())
+    
 
-    const notify= (matchitem) =>{
-   
-       matchitem== undefined ?
+    localStorage.setItem("CartPages", JSON.stringify(ProductData));
+  };
 
-   
-
-      toast("Product Succesfully added", {
+   const notify = (matchitem) => {
+    matchitem == undefined
+      ? toast("Product Succesfully added", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -42,53 +44,41 @@ const Card = ({
           progress: undefined,
           theme: "light",
           transition: Bounce,
-      
-      
-      
-      
-     
-        }) :
-   
-   toast.warn('Product Already Added', {
-position: "top-right",
-autoClose: 5000,
-hideProgressBar: false,
-closeOnClick: false,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "light",
-transition: Bounce,
-});
-   
-   
-  
-  
-  
-    } 
-    
-
-    localStorage.setItem("CartPages", JSON.stringify(ProductData));
+        })
+      : toast.warn("Product Already Added", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
   };
 
   const handleAddCart = () => {
-    const matchitem = cardData.find((item) => item.id == id);
-
-     
-    if (!matchitem) {
-      dispatch(CartReducer(ProductData));
+    console.log("Card ID:", id);
+    console.log("Cart Data:", cardData);
+    const matchitem = cardData.find((item) => item?.id == id);
+    console.log(matchitem);
+    console.log("ProductData:", ProductData);
+    if (!matchitem && ProductData) {
+      dispatch(CartReducer({...cardData,quantity: 1}));
     }
-   
-     notify(matchitem)
 
+    notify(matchitem);
   };
 
   return (
     <>
-      <div onClick={handleProductDetails} className="group flex w-67.5">
+      <div  className="group flex w-67.5 overflow-hidden mb-10">
         <div className="relative overflow-hidden">
-          <div>
+          <div className="overflow-hidden">
             <img
+
+            onClick={handleProductDetails}
               className="cursor-pointer"
               src={imgSRC}
               alt="console onClick={handleProductDetails} "
@@ -106,7 +96,7 @@ transition: Bounce,
 
             <button
               onClick={handleAddCart}
-              className="bg-black text-white py-3 absolute -bottom-6 left-0 group-hover:bottom-0 duration-150 ease-linear cursor-pointer"
+              className="bg-black text-white py-3 absolute -bottom-6 left-0 w-full group-hover:bottom-0 duration-150 ease-linear cursor-pointer"
             >
               Add To Cart
             </button>
@@ -117,7 +107,7 @@ transition: Bounce,
           <h3 className="text-primary">{discount}</h3>
           <h3 className="line-through">{price}</h3>
         </Flex>
-        <div className="flex text-amber-300 mt-10 items-center">
+        <div className="flex justify-end items-end relative    text-amber-300 mt-10">
           {/* <FaStar />
         <FaStar />
         <FaStar />

@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import Card from './Card';
 import Coat from '../assets/Coat.png';
 import Cart2 from '../assets/purse.png';
-// import Cart3 from '../assets/Speaker-2.png';
+import Cart3 from '../assets/Speaker.png';
 import Cart4 from '../assets/Desk.png';
 import Flex from './Flex';
 const Months = ({title,heading}) => {

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Button = ({Button}) => {
+const Button = ({children}) => {
   return (
    
    <div className='relative'>
 
-     <Button  className={`w-30px bg-red-400 text-white text-xs lg:text-base flex justify-center items-center px-8 py-3 lg:px-12  lg:py-3`}>{Button}</Button>
+     <button className={`w-30px bg-red-400 text-white text-xs lg:text-base flex justify-center items-center px-8 py-3 lg:px-12  lg:py-3`}>{children}</button>
 
    </div>
    

@@ -226,7 +226,7 @@ export const Flash = () => {
       
      <Categories title='Categories'heading='Browse Your Categories'/>
        <Months title='This Month'heading='Best Selling Products'/>
-       <Button Button='View All Products'/>
+       <Button>View All Products</Button>
        <Products title='Our Products'heading='Explore Our Products'/>
   
      <Featured title='Featured' heading='New Arrival'/>
